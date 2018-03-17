@@ -1,0 +1,30 @@
+{
+  "name": "tylerChat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run build:live",
+    "build:live": " npm run build-ts && npm run tslint && nodemon --exec ./node_modules/.bin/ts-node -- src/server.ts",
+    "test": "./node_modules/.bin/mocha --compilers ts:ts-node/register ./test/*.test.ts",
+    "build-sass": "node-sass src/public/css/main.scss dist/public/css/main.css",
+    "build-ts": "tsc",
+    "watch-ts": "tsc -w",
+    "watch-sass": "node-sass -w -o src/public/css/main.scss dist/public/css/main.css",
+    "copy-static-assets": "ts-node copyStaticAssets.ts",
+    "tslint": "tslint -c tslint.json -p tsconfig.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "typescript": "^2.7.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.11.1",
+    "nodemon": "^1.17.2",
+    "node-sass": "^4.7.2",
+    "ts-node": "^5.0.1"
+  }
+}
